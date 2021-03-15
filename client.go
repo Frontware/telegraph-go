@@ -19,12 +19,14 @@ type ClientOption struct {
 	Timeout time.Duration
 }
 
+// Client represents the connection to Telegra.ph API.
 type Client struct {
 	AccessToken string
 	option      *ClientOption
 	httpClient  *http.Client
 }
 
+// NewClient returns a new connection to Telegra.ph API.s
 func NewClient(accessToken string, option *ClientOption) (client *Client, err error) {
 	client = &Client{
 		AccessToken: accessToken,
