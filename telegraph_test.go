@@ -1,15 +1,16 @@
 package telegraph_test
 
 import (
-	"github.com/kallydev/telegraph-go"
 	"testing"
 	"time"
+
+	"github.com/frontware/telegraph-go"
 )
 
 const (
 	shortName  = "telegraph-go"
 	authorName = "TelegraphGo"
-	authorURL  = "https://github.com/kallydev/telegraph-go"
+	authorURL  = "https://github.com/frontware/telegraph-go"
 )
 
 var (

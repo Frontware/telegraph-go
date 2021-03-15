@@ -1,4 +1,4 @@
-module github.com/kallydev/telegraph-go
+module github.com/frontware/telegraph-go
 
 go 1.16
 
