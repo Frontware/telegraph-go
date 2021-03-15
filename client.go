@@ -31,20 +31,23 @@ func NewClient(accessToken string, option *ClientOption) (client *Client, err er
 		option:      option,
 		httpClient:  new(http.Client),
 	}
-	if client.option != nil {
-		if client.option.Timeout != 0 {
-			client.httpClient.Timeout = client.option.Timeout
+	// No option, we are done
+	if client.option == nil {
+		return
+	}
+	if client.option.Timeout != 0 {
+		client.httpClient.Timeout = client.option.Timeout
+	}
+	if len(client.option.Proxy) > 0 {
+		proxyURL, err := url.Parse(client.option.Proxy)
+		if err != nil {
+			return nil, err
 		}
-		if len(client.option.Proxy) > 0 {
-			proxyURL, err := url.Parse(client.option.Proxy)
-			if err != nil {
-				return nil, err
-			}
-			client.httpClient.Transport = &http.Transport{
-				Proxy: http.ProxyURL(proxyURL),
-			}
+		client.httpClient.Transport = &http.Transport{
+			Proxy: http.ProxyURL(proxyURL),
 		}
 	}
+
 	return client, nil
 }
 
