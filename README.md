@@ -7,7 +7,7 @@ Golang [Telegraph API](https://telegra.ph/api) SDK.
 ### Installation
 
 ```bash
-go get github.com/kallydev/telegraph-go
+go get github.com/frontware/telegraph-go
 ```
 
 ### Example
@@ -17,8 +17,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/kallydev/telegraph-go"
-	"log"
+	"github.com/frontware/telegraph-go"
+	log "github.com/sirupsen/logrus"
 )
 
 func main() {

@@ -5,15 +5,15 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/google/uuid"
 	"io"
-	"io/ioutil"
 	"mime/multipart"
 	"net/http"
 	"net/url"
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/google/uuid"
 )
 
 const (
@@ -382,7 +382,8 @@ func (client *Client) Upload(filenames []string) (paths []string, err error) {
 	if err != nil {
 		return nil, err
 	}
-	data, err := ioutil.ReadAll(httpResponse.Body)
+
+	data, err := io.ReadAll(httpResponse.Body)
 	if err != nil {
 		return nil, err
 	}
